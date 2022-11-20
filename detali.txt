@@ -1,0 +1,6 @@
+date--时间
+confirm--累计确诊
+dead--累计死亡
+heal--累计治愈
+confirm_add--新增确诊
+yes_wzz_add--新增无症状

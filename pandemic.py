@@ -39,8 +39,8 @@ if __name__ == '__main__':
         headers = {'Content-Type': 'application/json','User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) ''Chrome/107.0.0.0 Safari/537.36 Edg/107.0.1418.24'}
         response = requests.get(url, headers)#拉取页面文件
         #获取列表
-        confirm_add_list = re.findall('"confirm_add":"(.*?)"', response.text)  
-        yes_wzz_add_list = re.findall('"yes_wzz_add":(.*?),', response.text)
+        confirm_add = re.findall('"confirm_add":"(.*?)"', response.text)  
+        yes_wzz_add = re.findall('"yes_wzz_add":(.*?),', response.text)
 
         title = title1.render(data, True, (0, 0, 0))#标题
         screen.blit(title, (115, 0))
@@ -52,13 +52,13 @@ if __name__ == '__main__':
         text1 = text.render("新增确诊:", True, (0, 0, 0))#文字1
         screen.blit(text1, (10, x1))
         #获取列表最后一个数据
-        number1 = number.render(confirm_add_list[-1], True, (255, 1, 1))#数字1
+        number1 = number.render(confirm_add[-1], True, (255, 1, 1))#数字1
         screen.blit(number1, (115, x1-da))       
         
         text2 = text.render("新增无症状:", True, (0, 0, 0))#文字2
         screen.blit(text2, (10, x2))
         #获取列表最后一个数据
-        number2 = number.render(yes_wzz_add_list[-1], True, (255, 1, 1))#数字2
+        number2 = number.render(yes_wzz_add[-1], True, (255, 1, 1))#数字2
         screen.blit(number2, (140, x2-da))
 
         while True:     
